@@ -126,7 +126,7 @@ var Options = function (_React$Component4) {
 
         var _this4 = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
 
-        _this4.removeAll = _this4.removeAll.bind(_this4);
+        _this4.removeAll = _this4.removeAll.bind(_this4); //Burası anlasılmadı burayı tekrar et bind ve this konusunu araştır.
         return _this4;
     }
 
