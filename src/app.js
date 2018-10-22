@@ -1,11 +1,23 @@
+//bind() method example
+/*const obj = {
+    name: "Ercan Er",
+    getName() {
+        return this.name;
+    }
+};
+
+const getName = obj.getName.bind({name: "Bok"});
+console.log(getName());
+*/
 class IndecisionApp extends React.Component {
     render() {
         const title = "Indecisions App";
-        const subtitle = "Put ypour life in the hands of a computer";
+        const subHeader = "Striker Tech";
+        const subtitle = "Put your life in the hands of a computer";
         const options = ["Ercan","Hande","Işıl"];
         return (
         <div>
-            <Header title={title} subtitle={subtitle} />
+            <Header title={title} sub={subHeader} subtitle={subtitle} />
             <Action />
             <Options options ={options}  />
             <AddOption />
@@ -20,6 +32,7 @@ class Header extends React.Component {
             <div>
             <h1>{this.props.title}</h1>
             <h2>{this.props.subtitle}</h2>
+            <h3>{this.props.sub}</h3>
             </div>
         );
     }
@@ -38,8 +51,13 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    constructor(props){
+        super(props);
+        this.removeAll = this.removeAll.bind(this);//Burası anlasılmadı burayı tekrar et bind ve this konusunu araştır.
+    }
+
     removeAll() {
-        alert("silindi");
+        console.log(this.props.options);   
     }
     render(){
         return (
