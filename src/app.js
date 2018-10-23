@@ -103,7 +103,4 @@ class AddOption extends React.Component{
 
     }
 }
-
-
-
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
