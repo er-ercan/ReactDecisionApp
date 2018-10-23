@@ -5,23 +5,29 @@ class Counter extends React.Component {
         this.handleMinusOne = this.handleMinusOne.bind(this);
         this.resetAll = this.resetAll.bind(this);
         this.state = {
-            count: 0
+            count: 0,
+            name: ''
         };
     }
     handleAddOne() {
-        this.setState({count: this.state.count +1}); //Bu şekildede yazılabiliyor
+        this.setState({
+            count: this.state.count +1,
+            name: 'You clicked +1 button'
+                    }); //Bu şekildede yazılabiliyor
     }
     handleMinusOne() {
         this.setState((prevState) => { //Bu şekilde yazmak daha doğru
             return{
-                count: prevState.count -1
+                count: prevState.count -1,
+                name: 'You clicked -1 button'
             }
         });
     }
     resetAll() {
         this.setState((prevState) =>{
             return{
-                count: 0
+                count: 0,
+                name: this.prevState
             }
         });
     }
@@ -30,6 +36,7 @@ class Counter extends React.Component {
         return (
             <div>
                 <h2>Count: {this.state.count} </h2>
+                <p>{this.state.name}</p>
                 <button onClick={this.handleAddOne}>+1</button>
                 <button onClick={this.handleMinusOne}>-1</button>
                 <button onClick={this.resetAll}>Reset</button>
@@ -41,7 +48,7 @@ class Counter extends React.Component {
 
 const yaz = document.getElementById('app');
 ReactDOM.render(<Counter />, yaz);
-
+/* State kullanmadan yapılan counter app */
 // let count = 0;
 // const addOne = () => {
 //     count += 1;

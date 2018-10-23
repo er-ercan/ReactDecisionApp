@@ -20,7 +20,8 @@ var Counter = function (_React$Component) {
         _this.handleMinusOne = _this.handleMinusOne.bind(_this);
         _this.resetAll = _this.resetAll.bind(_this);
         _this.state = {
-            count: 0
+            count: 0,
+            name: ''
         };
         return _this;
     }
@@ -28,7 +29,10 @@ var Counter = function (_React$Component) {
     _createClass(Counter, [{
         key: 'handleAddOne',
         value: function handleAddOne() {
-            this.setState({ count: this.state.count + 1 }); //Bu şekildede yazılabiliyor
+            this.setState({
+                count: this.state.count + 1,
+                name: 'You clicked +1 button'
+            }); //Bu şekildede yazılabiliyor
         }
     }, {
         key: 'handleMinusOne',
@@ -36,16 +40,20 @@ var Counter = function (_React$Component) {
             this.setState(function (prevState) {
                 //Bu şekilde yazmak daha doğru
                 return {
-                    count: prevState.count - 1
+                    count: prevState.count - 1,
+                    name: 'You clicked -1 button'
                 };
             });
         }
     }, {
         key: 'resetAll',
         value: function resetAll() {
+            var _this2 = this;
+
             this.setState(function (prevState) {
                 return {
-                    count: 0
+                    count: 0,
+                    name: _this2.prevState
                 };
             });
         }
@@ -61,6 +69,11 @@ var Counter = function (_React$Component) {
                     'Count: ',
                     this.state.count,
                     ' '
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    this.state.name
                 ),
                 React.createElement(
                     'button',
@@ -86,7 +99,7 @@ var Counter = function (_React$Component) {
 
 var yaz = document.getElementById('app');
 ReactDOM.render(React.createElement(Counter, null), yaz);
-
+/* State kullanmadan yapılan counter app */
 // let count = 0;
 // const addOne = () => {
 //     count += 1;
