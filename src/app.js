@@ -36,7 +36,6 @@ class IndecisionApp extends React.Component {
         this.setState((prevState) => {
             return {
                 options: prevState.options.concat(option)
-                
             }
            });
         }
@@ -49,7 +48,7 @@ class IndecisionApp extends React.Component {
         const subtitle = "Put your life in the hands of a computer";
         return (
         <div>
-            <Header title={title} sub={subHeader} subtitle={subtitle} />
+            <Header title={title} sub={subHeader} subtitle={subtitle}  />
             <Action 
             hasOptions = {this.state.options.length > 0 }
             handlePick = {this.handlePick} />
@@ -94,6 +93,7 @@ class Options extends React.Component {
     render(){
         return (
             <div>
+                
             <button onClick={this.props.handleDeleteOptions}>Remove All</button>
             {
                 this.props.options.map((option) => <Option key={option} optionText={option}/>)
@@ -136,6 +136,7 @@ class AddOption extends React.Component{
     render(){
         return (
             <div>
+               
                 {this.state.error && <p>{this.state.error}</p>}
                <form onSubmit = {this.handleAddOption}>
                     <input type="text" name="option" className=""></input>
