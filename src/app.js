@@ -1,6 +1,11 @@
+// stateless functional component
+//These two can and should live alongside one another 
+//if we do need some of  advanced features like use class based component
+//if you dont and you find yourself creating a class that just has a render method its probably best
+//to conver it stateless functional component
 class IndecisionApp extends React.Component {
     constructor(props){
-        super(props);
+        super(props); //The super keyword is used to access and call functions on an object's parent.
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
@@ -20,15 +25,15 @@ class IndecisionApp extends React.Component {
     handlePick(){
         const randomNum = Math.floor(Math.random()* this.state.options.length);
         const option = this.state.options[randomNum];
-       alert(option);
+        alert(option);
     }
     
     handleAddOption(option){
-    if(!option)
+     if(!option)
     {
         return "Enter Valid Value Please";
     }
-    else if(this.state.options.indexOf(option) > -1)
+     else if(this.state.options.indexOf(option) > -1)
     {
         return "This option already exist!"
     }
@@ -63,54 +68,95 @@ class IndecisionApp extends React.Component {
         );
     }
 }
-
-class Header extends React.Component {
-    render(){
-        return (
-            <div>
-            <h1>{this.props.title}</h1>
-            <h2>{this.props.subtitle}</h2>
-            <h3>{this.props.sub}</h3>
-            </div>
-        );
-    }
-}
-class Action extends React.Component {
-    render(){
-        return (
-            <div>
-                <button 
-                onClick={this.props.handlePick}
-                disabled={!this.props.hasOptions}>
-                What should I do ?
-                </button>
-            </div>
-        );
-    }
+const Header = (props) => {
+    return (
+        <div>
+        <h1>{props.title}</h1>
+        <h2>{props.subtitle}</h2>
+        <h3>{props.sub}</h3>
+        </div>
+    );
 }
 
-class Options extends React.Component {
-    render(){
-        return (
-            <div>
+// class Header extends React.Component {
+//     render(){
+//         return (
+//             <div>
+//             <h1>{this.props.title}</h1>
+//             <h2>{this.props.subtitle}</h2>
+//             <h3>{this.props.sub}</h3>
+//             </div>
+//         );
+//     }
+// }
+
+const Action = (props) => {
+    return (
+        <div>
+            <button 
+            onClick={props.handlePick}
+            disabled={!props.hasOptions}>
+            What should I do ?
+            </button>
+        </div>
+    );
+};
+
+// class Action extends React.Component {
+//     render(){
+//         return (
+//             <div>
+//                 <button 
+//                 onClick={this.props.handlePick}
+//                 disabled={!this.props.hasOptions}>
+//                 What should I do ?
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
+
+const Options = (props) => {
+    return (
+                    <div>
+                        
+                    <button onClick={props.handleDeleteOptions}>Remove All</button>
+                     {
+                         props.options.map((option) => <Option key={option} optionText={option}/>)
+                     }
+                     </div>
+                 );
+}
+
+// class Options extends React.Component {
+//     render(){
+//         return (
+//             <div>
                 
-            <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-            {
-                this.props.options.map((option) => <Option key={option} optionText={option}/>)
-            }
-                {/* <p>{this.props.options.length}</p> */}
-            </div>
-        );
-    }
-}
+//             <button onClick={this.props.handleDeleteOptions}>Remove All</button>
+//             {
+//                 this.props.options.map((option) => <Option key={option} optionText={option}/>)
+//             }
+//                 {/* <p>{this.props.options.length}</p> */}
+//             </div>
+//         );
+//     }
+// }
 
-class Option extends React.Component {
-    render() {
-        return <div>
-            {this.props.optionText}
-        </div>;
-    }
+const Option = (props) => {
+    return(
+         <div>
+            {props.optionText}
+         </div>
+    );
 }
+// class Option extends React.Component {
+//     render() {
+//         return <div>
+//             {this.props.optionText}
+//         </div>;
+//     }
+// }
 
 class AddOption extends React.Component{
     constructor(props){
@@ -121,15 +167,15 @@ class AddOption extends React.Component{
         }
     }
     handleAddOption(e) {
-        e.preventDefault();
 
+        e.preventDefault();
         const option =  e.target.elements.option.value.trim();
         const error = this.props.handleAddOption(option);
         e.target.elements.option.value = "";
  
-        this.setState(()=>{
+        this.setState(() => {
             return { error };
-        })
+        });
      }
 
 
@@ -138,7 +184,9 @@ class AddOption extends React.Component{
             <div>
                
                 {this.state.error && <p>{this.state.error}</p>}
+
                <form onSubmit = {this.handleAddOption}>
+
                     <input type="text" name="option" className=""></input>
                     <button>Add Option</button>
                    
@@ -148,6 +196,19 @@ class AddOption extends React.Component{
 
     }
 }
+// const User = (props) => {
+//     return (
+//         <div>
+//             <p>
+//                 Name: {props.name}
+//             </p>
+//             <p>
+//                 Age:{props.age}
+//             </p>
+//         </div>
+//     );
+// }
+
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
 
 /*bind() method example
