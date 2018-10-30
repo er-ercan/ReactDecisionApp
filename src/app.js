@@ -3,8 +3,9 @@ class IndecisionApp extends React.Component {
         super(props);
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
+        this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
-            options: ["Ercan","Ayse","Hande", "Mehmet"]
+            options: []
         }
     }
 
@@ -21,6 +22,15 @@ class IndecisionApp extends React.Component {
         const option = this.state.options[randomNum];
        alert(option);
     }
+    
+    handleAddOption(option){
+       this.setState((prevState) => {
+        return {
+            options: prevState.options.concat([option])
+        }
+       });
+    }
+
     render() {
         const title = "Indecisions App";
         const subHeader = "Striker Tech";
@@ -35,7 +45,9 @@ class IndecisionApp extends React.Component {
             options ={this.state.options}  
             handleDeleteOptions={this.handleDeleteOptions}
             />
-            <AddOption />
+            <AddOption
+            handleAddOption = {this.handleAddOption}
+            />
         </div>
         );
     }
@@ -89,19 +101,24 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component{
-    onFormSubmit(e) {
+    constructor(props){
+        super(props);
+        this.handleAddOption = this.handleAddOption.bind(this);
+
+    }
+    handleAddOption(e) {
         e.preventDefault();
 
         const option =  e.target.elements.option.value.trim();
 
         if(option){
-            alert(option);
+            this.props.handleAddOption(option);
         }
     }
     render(){
         return (
             <div>
-               <form onSubmit = {this.onFormSubmit}>
+               <form onSubmit = {this.handleAddOption}>
                     <input type="text" name="option" className=""></input>
                     <button>Add Option</button>
                    
