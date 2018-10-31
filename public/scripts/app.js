@@ -8,11 +8,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// stateless functional component
-//These two can and should live alongside one another 
-//if we do need some of  advanced features like use class based component
-//if you dont and you find yourself creating a class that just has a render method its probably best
-//to conver it stateless functional component
+// Stateless functional component
+// These two can and should live alongside one another 
+// if we do need some of  advanced features like use class based component
+// if you dont and you find yourself creating a class that just has a render method its probably best
+// to conver it stateless functional component
 var IndecisionApp = function (_React$Component) {
     _inherits(IndecisionApp, _React$Component);
 
@@ -26,7 +26,7 @@ var IndecisionApp = function (_React$Component) {
         _this.handlePick = _this.handlePick.bind(_this);
         _this.handleAddOption = _this.handleAddOption.bind(_this);
         _this.state = {
-            options: []
+            options: props.options
         };
         return _this;
     }
@@ -65,13 +65,12 @@ var IndecisionApp = function (_React$Component) {
     }, {
         key: "render",
         value: function render() {
-            var title = "Indecisions App";
-            var subHeader = "Striker Tech";
+
             var subtitle = "Put your life in the hands of a computer";
             return React.createElement(
                 "div",
                 null,
-                React.createElement(Header, { title: title, sub: subHeader, subtitle: subtitle }),
+                React.createElement(Header, { subtitle: subtitle }),
                 React.createElement(Action, {
                     hasOptions: this.state.options.length > 0,
                     handlePick: this.handlePick }),
@@ -98,7 +97,7 @@ var Header = function Header(props) {
             null,
             props.title
         ),
-        React.createElement(
+        props.subtitle && React.createElement(
             "h2",
             null,
             props.subtitle
@@ -111,19 +110,28 @@ var Header = function Header(props) {
     );
 };
 
-// class Header extends React.Component {
-//     render(){
-//         return (
-//             <div>
-//             <h1>{this.props.title}</h1>
-//             <h2>{this.props.subtitle}</h2>
-//             <h3>{this.props.sub}</h3>
-//             </div>
-//         );
-//     }
-// }
+Header.defaultProps = {
+    title: "Indecesion Applicaton",
+    sub: "Enter your task and choose randomly",
+    subtitle: "GitHub React Project By Ercan Er"
+};
 
-var Action = function Action(props) {
+IndecisionApp.defaultProps = {
+    options: []
+
+    // class Header extends React.Component {
+    //     render(){
+    //         return (
+    //             <div>
+    //             <h1>{this.props.title}</h1>
+    //             <h2>{this.props.subtitle}</h2>
+    //             <h3>{this.props.sub}</h3>
+    //             </div>
+    //         );
+    //     }
+    // }
+
+};var Action = function Action(props) {
     return React.createElement(
         "div",
         null,
@@ -185,7 +193,15 @@ var Option = function Option(props) {
     return React.createElement(
         "div",
         null,
-        props.optionText
+        React.createElement(
+            "ul",
+            null,
+            React.createElement(
+                "li",
+                null,
+                props.optionText
+            )
+        )
     );
 };
 // class Option extends React.Component {
@@ -251,6 +267,9 @@ var AddOption = function (_React$Component2) {
 
     return AddOption;
 }(React.Component);
+
+ReactDOM.render(React.createElement(IndecisionApp, { options: ["Default 1", "Default 2"] }), document.getElementById('app'));
+
 // const User = (props) => {
 //     return (
 //         <div>
@@ -264,7 +283,6 @@ var AddOption = function (_React$Component2) {
 //     );
 // }
 
-ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
 
 /*bind() method example
 const obj = {

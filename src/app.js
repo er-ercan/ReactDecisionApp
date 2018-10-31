@@ -1,8 +1,8 @@
-// stateless functional component
-//These two can and should live alongside one another 
-//if we do need some of  advanced features like use class based component
-//if you dont and you find yourself creating a class that just has a render method its probably best
-//to conver it stateless functional component
+// Stateless functional component
+// These two can and should live alongside one another 
+// if we do need some of  advanced features like use class based component
+// if you dont and you find yourself creating a class that just has a render method its probably best
+// to conver it stateless functional component
 class IndecisionApp extends React.Component {
     constructor(props){
         super(props); //The super keyword is used to access and call functions on an object's parent.
@@ -10,7 +10,7 @@ class IndecisionApp extends React.Component {
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
-            options: []
+            options: props.options
         }
     }
 
@@ -48,12 +48,11 @@ class IndecisionApp extends React.Component {
        
 
     render() {
-        const title = "Indecisions App";
-        const subHeader = "Striker Tech";
+       
         const subtitle = "Put your life in the hands of a computer";
         return (
         <div>
-            <Header title={title} sub={subHeader} subtitle={subtitle}  />
+            <Header subtitle={subtitle}  />
             <Action 
             hasOptions = {this.state.options.length > 0 }
             handlePick = {this.handlePick} />
@@ -72,10 +71,20 @@ const Header = (props) => {
     return (
         <div>
         <h1>{props.title}</h1>
-        <h2>{props.subtitle}</h2>
+        {props.subtitle && <h2>{props.subtitle}</h2>}
         <h3>{props.sub}</h3>
         </div>
     );
+}
+
+Header.defaultProps = {
+    title: "Indecesion Applicaton",
+    sub: "Enter your task and choose randomly",
+    subtitle: "GitHub React Project By Ercan Er"
+}
+
+IndecisionApp.defaultProps = {
+    options: []
 }
 
 // class Header extends React.Component {
@@ -146,7 +155,9 @@ const Options = (props) => {
 const Option = (props) => {
     return(
          <div>
-            {props.optionText}
+            <ul>
+            <li>{props.optionText}</li>
+            </ul>
          </div>
     );
 }
@@ -196,6 +207,10 @@ class AddOption extends React.Component{
 
     }
 }
+
+
+ReactDOM.render(<IndecisionApp options={["Default 1","Default 2"]}/>, document.getElementById('app'));
+
 // const User = (props) => {
 //     return (
 //         <div>
@@ -209,7 +224,6 @@ class AddOption extends React.Component{
 //     );
 // }
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
 
 /*bind() method example
 const obj = {
