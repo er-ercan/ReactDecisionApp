@@ -38,12 +38,12 @@ var IndecisionApp = function (_React$Component) {
             //We can write this instead.
             this.setState(function () {
                 return { options: [] };
-            });
+            }); //This is not need return keyword.
         }
     }, {
         key: "handleDeleteOption",
-        value: function handleDeleteOption() {
-            console.log("Hds");
+        value: function handleDeleteOption(option) {
+            console.log("hdo", option);
         }
     }, {
         key: "handlePick",
@@ -150,7 +150,11 @@ var Options = function Options(props) {
             "Remove All"
         ),
         props.options.map(function (option) {
-            return React.createElement(Option, { key: option, optionText: option });
+            return React.createElement(Option, {
+                key: option,
+                optionText: option,
+                handleDeleteOption: props.handleDeleteOption
+            });
         })
     );
 };
@@ -159,14 +163,11 @@ var Option = function Option(props) {
     return React.createElement(
         "div",
         null,
+        props.optionText,
         React.createElement(
-            "ul",
-            null,
-            React.createElement(
-                "li",
-                null,
-                props.optionText
-            )
+            "button",
+            { onClick: props.handleDeleteOption },
+            "Remove"
         )
     );
 };
