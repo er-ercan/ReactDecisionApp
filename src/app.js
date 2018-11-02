@@ -158,16 +158,18 @@ class AddOption extends React.Component {
 		);
 	}
 }
-// Stateless functional component
-// These two can and should live alongside one another
-// if we do need some of  advanced features like use class based component
-// if you dont and you find yourself creating a class that just has a render method its probably best
-// to conver it stateless functional component
+
 
 ReactDOM.render(
 	<IndecisionApp options={["Default 1", "Default 2"]} />,
 	document.getElementById("app")
 );
+
+// Stateless functional component
+// These two can and should live alongside one another
+// if we do need some of  advanced features like use class based component
+// if you dont and you find yourself creating a class that just has a render method its probably best
+// to conver it stateless functional component
 
 // class Header extends React.Component {
 //     render(){
