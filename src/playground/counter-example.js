@@ -9,6 +9,16 @@ class Counter extends React.Component {
             name: ''
         };
     }
+
+    componentDidMount(){
+
+    }
+    componentDidUpdate(prevProps, prevState){
+
+    }
+    componentWillUnmount(){
+        
+    }
     handleAddOne() {
         this.setState({
             count: this.state.count +1,

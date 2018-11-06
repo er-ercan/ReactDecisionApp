@@ -10,6 +10,39 @@ class IndecisionApp extends React.Component {
 		};
 	}
 
+	componentDidMount(){
+
+		try{
+			const json = localStorage.getItem("options");
+			const options = JSON.parse(json);
+	
+			if(options){
+				this.setState(() => {
+					return {
+						options: options
+					}
+				});
+			}
+		} catch(e){
+
+		}
+	
+		
+		console.log("Fetching Data(Tr:Verileri getirmek için)");
+	}
+	componentDidUpdate(prevProps, prevState){
+		if(prevState.options.length !== this.state.options.length){
+			const json = JSON.stringify(this.state.options);
+			localStorage.setItem("options",json);
+			console.log("Saving Data (Tr: Verileri Kaydetmek için)");
+		}
+		
+	}
+	componentWillUnmount(){
+		console.log("");
+	}
+
+
 	handleDeleteOptions() {
 		/* this.setState(() => {
             return {
@@ -101,6 +134,7 @@ const Options = props => {
 	return (
 		<div>
 			<button onClick={props.handleDeleteOptions}>Remove All</button>
+			{props.options.length === 0 && <p>Add option and started!</p>}
 			{props.options.map(option => (
 				<Option
 					key={option}
@@ -140,7 +174,11 @@ class AddOption extends React.Component {
 		e.preventDefault();
 		const option = e.target.elements.option.value.trim();
 		const error = this.props.handleAddOption(option);
-		e.target.elements.option.value = "";
+
+		if(!error) {
+			e.target.elements.option.value = "";
+		}
+		
 
 		this.setState(() => ({ error }));
 	}
