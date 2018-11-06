@@ -26,7 +26,6 @@ class IndecisionApp extends React.Component {
 				return optionToRemove !== option;
 			})
 		}));
-		console.log("hdo", option);
 	}
 
 	handlePick() {
@@ -87,11 +86,12 @@ IndecisionApp.defaultProps = {
 	options: []
 };
 
+
 const Action = props => {
 	return (
 		<div>
 			<button onClick={props.handlePick} disabled={!props.hasOptions}>
-				What should I do ?
+			What should I do ?
 			</button>
 		</div>
 	);
@@ -165,83 +165,3 @@ ReactDOM.render(
 	document.getElementById("app")
 );
 
-// Stateless functional component
-// These two can and should live alongside one another
-// if we do need some of  advanced features like use class based component
-// if you dont and you find yourself creating a class that just has a render method its probably best
-// to conver it stateless functional component
-
-// class Header extends React.Component {
-//     render(){
-//         return (
-//             <div>
-//             <h1>{this.props.title}</h1>
-//             <h2>{this.props.subtitle}</h2>
-//             <h3>{this.props.sub}</h3>
-//             </div>
-//         );
-//     }
-// }
-
-// class Action extends React.Component {
-//     render(){
-//         return (
-//             <div>
-//                 <button
-//                 onClick={this.props.handlePick}
-//                 disabled={!this.props.hasOptions}>
-//                 What should I do ?
-//                 </button>
-//             </div>
-//         );
-//     }
-// }
-
-// class Options extends React.Component {
-//     render(){
-//         return (
-//             <div>
-
-//             <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-//             {
-//                 this.props.options.map((option) => <Option key={option} optionText={option}/>)
-//             }
-//                 {/* <p>{this.props.options.length}</p> */}
-//             </div>
-//         );
-//     }
-// }
-
-// class Option extends React.Component {
-//     render() {
-//         return <div>
-//             {this.props.optionText}
-//         </div>;
-//     }
-// }
-
-/* -----------------------------------------------------------------  */
-// const User = (props) => {
-//     return (
-//         <div>
-//             <p>
-//                 Name: {props.name}
-//             </p>
-//             <p>
-//                 Age:{props.age}
-//             </p>
-//         </div>
-//     );
-// }
-
-/*bind() method example
-const obj = {
-    name: "Ercan Er",
-    getName() {
-        return this.name;
-    }
-};
-
-const getName = obj.getName.bind({name: "Bok"});
-console.log(getName());
-*/
