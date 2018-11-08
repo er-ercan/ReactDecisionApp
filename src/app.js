@@ -6,7 +6,7 @@ class IndecisionApp extends React.Component {
 		this.handleAddOption = this.handleAddOption.bind(this);
 		this.handleDeleteOption = this.handleDeleteOption.bind(this);
 		this.state = {
-			options: props.options
+			options: []
 		};
 	}
 
@@ -115,9 +115,7 @@ Header.defaultProps = {
 	subtitle: "GitHub React Project By Ercan Er"
 };
 
-IndecisionApp.defaultProps = {
-	options: []
-};
+
 
 
 const Action = props => {

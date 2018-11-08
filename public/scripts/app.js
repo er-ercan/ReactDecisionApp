@@ -22,7 +22,7 @@ var IndecisionApp = function (_React$Component) {
 		_this.handleAddOption = _this.handleAddOption.bind(_this);
 		_this.handleDeleteOption = _this.handleDeleteOption.bind(_this);
 		_this.state = {
-			options: props.options
+			options: []
 		};
 		return _this;
 	}
@@ -158,10 +158,6 @@ Header.defaultProps = {
 	title: "Indecesion Applicaton",
 	sub: "Enter your task and choose randomly",
 	subtitle: "GitHub React Project By Ercan Er"
-};
-
-IndecisionApp.defaultProps = {
-	options: []
 };
 
 var Action = function Action(props) {
