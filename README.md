@@ -59,7 +59,7 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [VS Code](https://code.visualstudio.com/) - IDE
-* [Maven](https://maven.apache.org/) - Dependency Management
+* [React](https://reactjs.org//) - Javascript Library
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
@@ -72,9 +72,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ercan Er** - *Developer* - [Github](https://github.com/iosyazilim)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also my website [contributors](http://ercaner.net) 
 
 ## License
 
