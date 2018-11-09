@@ -5,9 +5,10 @@
   "author": "Ercan Er",
   "license": "MIT",
   "dependencies": {
-    "babel-cli": "^6.26.0",
+    "babel-cli": "6.24.1",
     "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1"
+    "babel-preset-react": "6.24.1",
+    "live-server": "^1.2.0"
   },
   "devDependencies": {
     "babel-install": "2.1.0"
