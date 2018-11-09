@@ -1,1 +1,1 @@
-live-server public
+yarn run serve
