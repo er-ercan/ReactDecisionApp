@@ -1,1 +1,1 @@
-console.log("Ercan Er Webpack Çalıştı");
+console.log("Bokum");
