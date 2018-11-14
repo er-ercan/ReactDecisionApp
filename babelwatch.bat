@@ -1,1 +1,1 @@
-yarn run build-babel
+yarn run build
