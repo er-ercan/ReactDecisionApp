@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ \"./src/utils.js\");\n/* harmony import */ var _person__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./person */ \"./src/person.js\");\n// import './utils'\r\n\r\n\r\n\r\nconsole.log(\"app.js is running\");\r\nconsole.log(Object(_utils__WEBPACK_IMPORTED_MODULE_0__[\"square\"])(5));\r\nconsole.log(Object(_utils__WEBPACK_IMPORTED_MODULE_0__[\"add\"])(4,6));\r\nconsole.log(_utils__WEBPACK_IMPORTED_MODULE_0__[\"ercan\"]);\r\nObject(_person__WEBPACK_IMPORTED_MODULE_1__[\"isAdult\"])(20);\r\nObject(_person__WEBPACK_IMPORTED_MODULE_1__[\"isDrink\"])(33);\n\n//# sourceURL=webpack:///./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ \"./src/utils.js\");\n/* harmony import */ var _person__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./person */ \"./src/person.js\");\n// import './utils'\r\n\r\n\r\n\r\nconsole.log(\"app.js is running\");\r\nconsole.log(Object(_utils__WEBPACK_IMPORTED_MODULE_0__[\"square\"])(5));\r\nconsole.log(Object(_utils__WEBPACK_IMPORTED_MODULE_0__[\"add\"])(4,6));\r\nconsole.log(_utils__WEBPACK_IMPORTED_MODULE_0__[\"ercan\"]);\r\nObject(_person__WEBPACK_IMPORTED_MODULE_1__[\"isAdult\"])(20);\r\nObject(_person__WEBPACK_IMPORTED_MODULE_1__[\"isDrink\"])(33);\r\nconsole.log(Object(_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(100, 35));\r\nconsole.log(Object(_person__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(100, 5, 6));\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ }),
 
@@ -102,11 +102,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _uti
 /*!***********************!*\
   !*** ./src/person.js ***!
   \***********************/
-/*! exports provided: isAdult, isDrink */
+/*! exports provided: isAdult, isDrink, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isAdult\", function() { return isAdult; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isDrink\", function() { return isDrink; });\n\r\nconst isAdult = (age) => {\r\n        if(age > 18){\r\n            console.log('Yes you re adult');\r\n        }\r\n        else{\r\n            console.log('You re teenage');\r\n        }\r\n    };\r\n\r\nconst isDrink = (age) => {\r\n        if(age > 21){\r\n            console.log('Yes you can drink');\r\n        }\r\n        else{\r\n            console.log('No you can not a drink');\r\n        }\r\n    };\r\n\r\n//if you want to change export this same meaning ---  export {isAdult, isDrink}\n\n//# sourceURL=webpack:///./src/person.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isAdult\", function() { return isAdult; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isDrink\", function() { return isDrink; });\n\r\nconst isAdult = (age) => {\r\n        if(age > 18){\r\n            console.log('Yes you re adult');\r\n        }\r\n        else{\r\n            console.log('You re teenage');\r\n        }\r\n    };\r\n\r\nconst isDrink = (age) => {\r\n        if(age > 21){\r\n            console.log('Yes you can drink');\r\n        }\r\n        else{\r\n            console.log('No you can not a drink');\r\n        }\r\n    };\r\n\r\nconst minus = (a, b ,c) => a + (b * c);\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (minus);\r\n\r\n//if you want to do this -> export default (a, b ,c) => a + (b * c);\r\n\r\n//if you want to change export this same meaning ---  export {isAdult, isDrink}\n\n//# sourceURL=webpack:///./src/person.js?");
 
 /***/ }),
 
@@ -114,11 +114,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!**********************!*\
   !*** ./src/utils.js ***!
   \**********************/
-/*! exports provided: ercan, square, add */
+/*! exports provided: square, add, ercan, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ercan\", function() { return ercan; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"square\", function() { return square; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"add\", function() { return add; });\nconsole.log('utils.js is running');\r\n\r\nconst ercan = 'bokum';\r\n\r\nconst square = (x) => {\r\n    return(\r\n     x*x\r\n    )};\r\n\r\nconst add = (a,b) => a + b ;\r\n\r\n//export {square, add};\n\n//# sourceURL=webpack:///./src/utils.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"square\", function() { return square; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"add\", function() { return add; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ercan\", function() { return ercan; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return subtrack; });\nconsole.log('utils.js is running');\r\n\r\nconst ercan = 'bokum';\r\n\r\nconst square = (x) => {\r\n    return(\r\n     x*x\r\n    )};\r\n\r\nconst add = (a,b) => a + b ;\r\n\r\nconst subtrack = (a, b) => a - b;\r\n\r\n\r\n\r\n//export - named export - default export\r\n\r\n\n\n//# sourceURL=webpack:///./src/utils.js?");
 
 /***/ })
 

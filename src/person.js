@@ -17,4 +17,10 @@ export const isDrink = (age) => {
         }
     };
 
+const minus = (a, b ,c) => a + (b * c);
+
+export default minus;
+
+//if you want to do this -> export default (a, b ,c) => a + (b * c);
+
 //if you want to change export this same meaning ---  export {isAdult, isDrink}

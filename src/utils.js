@@ -1,12 +1,17 @@
 console.log('utils.js is running');
 
-export const ercan = 'bokum';
+const ercan = 'bokum';
 
-export const square = (x) => {
+const square = (x) => {
     return(
      x*x
     )};
 
-export const add = (a,b) => a + b ;
+const add = (a,b) => a + b ;
 
-//export {square, add};
+const subtrack = (a, b) => a - b;
+
+export {square, add, ercan, subtrack as default};
+
+//export - named export - default export
+
