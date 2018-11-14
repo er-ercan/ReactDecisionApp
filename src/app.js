@@ -1,8 +1,12 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import validator from 'validator';
 
 const valid = validator.isEmail('ercanatilim@.com');
 console.log(valid);
 
+const template = React.createElement('p',{},'Test');
+ReactDOM.render(template, document.getElementById('app'));
 
 
 //import anythingIwant, { square, add, ercan } from './utils';
