@@ -5,7 +5,7 @@ import validator from 'validator';
 const valid = validator.isEmail('ercanatilim@.com');
 console.log(valid);
 
-const template = React.createElement('p',{},'Test');
+const template = <p>Test 123</p>
 ReactDOM.render(template, document.getElementById('app'));
 
 
