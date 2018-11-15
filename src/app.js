@@ -8,6 +8,5 @@ ReactDOM.render(
 	document.getElementById("app")
 );
 
-
 //const valid = validator.isEmail('ercanatilim@.com');
 //console.log(valid);

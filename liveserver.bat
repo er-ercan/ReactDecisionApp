@@ -1,1 +1,1 @@
-yarn run serve
+yarn run dev-server
