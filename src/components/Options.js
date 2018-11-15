@@ -12,7 +12,8 @@ const Options = props => {
 					optionText={option}
 					handleDeleteOption={props.handleDeleteOption}
 				/>
-			))}
+            ))}
+            
 		</div>
 	);
 };
