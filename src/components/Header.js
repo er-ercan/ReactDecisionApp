@@ -12,7 +12,7 @@ const Header = props => {
 
 Header.defaultProps = {
 	title: "Indecesion Applicaton",
-	sub: "Enter your task and choose randomly",
+	sub: "Enter your task and choose randomly - Just Do It!",
 	subtitle: "GitHub React Project By Ercan Er"
 };
 
