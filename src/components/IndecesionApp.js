@@ -4,21 +4,17 @@ import Options from './Options';
 import Header from './Header';
 import Action from './Action';
 
-
 export default class IndecisionApp extends React.Component {
+	
+	state = {
+		options: []
+	};
+
 	constructor(props) {
 		super(props); //The super keyword is used to access and call functions on an object's parent.
-		this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-		this.handlePick = this.handlePick.bind(this);
-		this.handleAddOption = this.handleAddOption.bind(this);
-		this.handleDeleteOption = this.handleDeleteOption.bind(this);
-		this.state = {
-			options: []
-		};
 	}
 
 	componentDidMount(){
-
 		try{
 			const json = localStorage.getItem("options");
 			const options = JSON.parse(json);
@@ -33,24 +29,23 @@ export default class IndecisionApp extends React.Component {
 		} catch(e){
 
 		}
-	
-		
 		console.log("Fetching Data(Tr:Verileri getirmek için)");
 	}
+
 	componentDidUpdate(prevProps, prevState){
 		if(prevState.options.length !== this.state.options.length){
 			const json = JSON.stringify(this.state.options);
 			localStorage.setItem("options",json);
 			console.log("Saving Data (Tr: Verileri Kaydetmek için)");
 		}
-		
 	}
+
 	componentWillUnmount(){
 		console.log("");
 	}
 
 
-	handleDeleteOptions() {
+	handleDeleteOptions = () => {
 		/* this.setState(() => {
             return {
                 options:[]
@@ -60,7 +55,7 @@ export default class IndecisionApp extends React.Component {
 		this.setState(() => ({ options: [] })); //This is not need return keyword.
 	}
 
-	handleDeleteOption(optionToRemove) {
+	handleDeleteOption = (optionToRemove) => {
 		this.setState((prevState) => ({
 			options:prevState.options.filter((option)=> {
 				return optionToRemove !== option;
@@ -68,13 +63,13 @@ export default class IndecisionApp extends React.Component {
 		}));
 	}
 
-	handlePick() {
+	handlePick = () => {
 		const randomNum = Math.floor(Math.random() * this.state.options.length);
 		const option = this.state.options[randomNum];
 		alert(option);
 	}
 
-	handleAddOption(option) {
+	handleAddOption = (option) => {
 		if (!option) {
 			return "Enter Valid Value Please";
 		} else if (this.state.options.indexOf(option) > -1) {
