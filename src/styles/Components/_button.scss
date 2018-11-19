@@ -14,6 +14,11 @@
     opacity: .5;
 }
 
+.big-button:active {
+    background: $purple;
+    opacity: .8;
+}
+
 .button {
     background: $purple;
     border:none;
